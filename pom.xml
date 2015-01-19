@@ -53,9 +53,6 @@
         <version>2.14</version>
         <configuration>
           <argLine>-Xms64m -Xmx256m</argLine>
-          <!--suiteXmlFiles>
-            <suiteXmlFile>src//test/resources/testng.xml</suiteXmlFile>
-          </suiteXmlFiles-->
         </configuration>
       </plugin>
       <plugin>
@@ -66,12 +63,6 @@
           <webAppConfig>
             <contextPath>/feetapp</contextPath>
           </webAppConfig>
-          <!--connectors>
-            <connector implementation="org.eclipse.jetty.nio.SelectChannelConnector">
-              <port>8080</port>
-              <maxIdleTime>60000</maxIdleTime>
-            </connector>
-          </connectors-->
           <loginServices>
             <loginService implementation="org.eclipse.jetty.security.HashLoginService">
               <name>Monitoring</name>

@@ -5,6 +5,7 @@
  *
  * TODO - Replace this content of this view to suite the needs of your application.
  */
+
 Ext.define('feetapp.view.main.Main', {
     extend: 'Ext.container.Container',
     requires: [
@@ -13,7 +14,7 @@ Ext.define('feetapp.view.main.Main', {
     ],
 
     xtype: 'app-main',
-    
+
     controller: 'main',
     viewModel: {
         type: 'main'
@@ -26,22 +27,31 @@ Ext.define('feetapp.view.main.Main', {
     items: [{
         xtype: 'panel',
         bind: {
-            title: '{name}'
+            title: 'Test ChartOHLC'//'{name}'
         },
         region: 'west',
-        html: '<ul><li>This area is commonly used for navigation, for example, using a "tree" component.</li></ul>',
+        html: '<ul><li>This area is commonly used for navigation.</li></ul>',
         width: 250,
-        split: true,
-        tbar: [{
-            text: 'Button',
-            handler: 'onClickButton'
-        }]
-    },{
+        split: true/*,
+         tbar: [{
+         text: 'Button',
+         handler: 'onClickButton'
+         }]*/
+    }, {
         region: 'center',
         xtype: 'tabpanel',
-        items:[{
-            title: 'Tab 1',
-            html: '<h2>Content appropriate for the current navigation.</h2>'
+        items: [{
+            title: 'Test ChartOHLC',
+            items: [
+                Ext.create('Ext.Container', {
+                    width: 900,
+                    height: 400,
+                    layout: 'fit',
+                    items: [
+                        {  xclass: 'feetapp.view.chart.ChartOHLC'   }
+                    ]
+                })]
+
         }]
     }]
 });

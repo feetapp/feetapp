@@ -3,7 +3,7 @@
  */
 Ext.define("feetapp.view.chart.ChartOHLC", {
     extend: 'Ext.chart.CartesianChart',
-    xtype: 'feetapp-chart-chartOHLC',
+    type: 'chartohlc',
     requires: [
         'Ext.chart.Chart',
         'Ext.chart.series.CandleStick',
@@ -12,11 +12,52 @@ Ext.define("feetapp.view.chart.ChartOHLC", {
         'Ext.chart.axis.Numeric',
         'Ext.chart.series.Line',
         'feetapp.model.finance.ModelOHLC',
-        'feetapp.store.finance.StoreTestOHLC'
+        'feetapp.store.finance.StoreTestOHLC',
+        'feetapp.view.chart.interactions.EventCrosshair'
     ],
     config: {
-        xtype: 'cartesian',
+        type: 'cartesian',
         store: Ext.create('feetapp.store.finance.StoreTestOHLC', {}),
+        interactions: {
+            type: 'eventcrosshair',
+            axes: {
+                left: {
+                    label: {
+                        fillStyle: 'white'
+                    },
+                    rect: {
+                        fillStyle: 'brown',
+                        radius: 6
+                    }
+                },
+                bottom: {
+                    label: {
+                        fontSize: '14px',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            lines: {
+                horizontal: {
+                    strokeStyle: 'brown',
+                    lineWidth: 2,
+                    lineDash: [20, 2, 2, 2, 2, 2, 2, 2]
+                }
+            },
+            listeners: {
+                click: {
+                    element: 'el', //bind to the underlying el property on the panel
+                    fn: function(){ console.log('click el'); }
+                },
+                dblclick: {
+                    element: 'body', //bind to the underlying body property on the panel
+                    fn: function(){ console.log('dblclick body'); }
+                }
+            }
+
+
+        },
+
         axes: [{
             type: 'numeric',
             position: 'left',

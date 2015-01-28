@@ -13,7 +13,7 @@ Ext.define('feetapp.view.main.Main', {
         'feetapp.view.main.MainModel'
     ],
 
-    xtype: 'app-main',
+    type: 'app-main',
 
     controller: 'main',
     viewModel: {
@@ -25,7 +25,7 @@ Ext.define('feetapp.view.main.Main', {
     },
 
     items: [{
-        xtype: 'panel',
+        type: 'panel',
         bind: {
             title: 'Test ChartOHLC'//'{name}'
         },
@@ -39,7 +39,7 @@ Ext.define('feetapp.view.main.Main', {
          }]*/
     }, {
         region: 'center',
-        xtype: 'tabpanel',
+        type: 'tabpanel',
         items: [{
             title: 'Test ChartOHLC',
             items: [

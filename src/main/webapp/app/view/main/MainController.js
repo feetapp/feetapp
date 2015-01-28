@@ -7,12 +7,13 @@
  */
 Ext.define('feetapp.view.main.MainController', {
     extend: 'Ext.app.ViewController',
+    alias: 'controller.main'
 
-    requires: [
+    /*requires: [
         'Ext.window.MessageBox'
     ],
 
-    alias: 'controller.main',
+
 
     onClickButton: function () {
         Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
@@ -22,5 +23,5 @@ Ext.define('feetapp.view.main.MainController', {
         if (choice === 'yes') {
             //
         }
-    }
+    } */
 });

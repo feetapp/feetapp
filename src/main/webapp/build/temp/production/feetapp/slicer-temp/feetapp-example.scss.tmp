@@ -884,6 +884,7 @@ $include-feetapp-application: true;
 $include-feetapp-model-finance-modelohlc: true;
 $include-feetapp-store-finance-storetestohlc: true;
 $include-feetapp-view-chart-chartohlc: true;
+$include-feetapp-view-chart-interactions-eventcrosshair: true;
 $include-feetapp-view-main-main: true;
 $include-feetapp-view-main-maincontroller: true;
 $include-feetapp-view-main-mainmodel: true;

@@ -47,60 +47,106 @@ Ext.define("feetapp.view.chart.ChartOHLC", {
             listeners: {
                 click: {
                     element: 'el', //bind to the underlying el property on the panel
-                    fn: function(){ console.log('click el'); }
+                    fn: function () {
+                        console.log('click el');
+                    }
                 },
                 dblclick: {
                     element: 'body', //bind to the underlying body property on the panel
-                    fn: function(){ console.log('dblclick body'); }
+                    fn: function () {
+                        console.log('dblclick body');
+                    }
                 }
             }
 
 
         },
 
-        axes: [{
-            type: 'numeric',
-            position: 'left',
-            fields: ['open', 'high', 'low', 'close'],
-            title: {
-                text: 'Sample Values',
-                fontSize: 15
-            },
-            grid: true,
-            minimum: 560,
-            maximum: 640
-        }, {
-            type: 'time',
-            position: 'bottom',
-            fields: ['time'],
-            fromDate: new Date('Dec 31 2009'),
-            toDate: new Date('Jan 8 2010'),
-            title: {
-                text: 'Sample Values',
-                fontSize: 15
-            },
-            style: {
-                axisLine: false
-            }
-        }],
-        series: {
-            type: 'candlestick',
-            xField: 'time',
-            openField: 'open',
-            highField: 'high',
-            lowField: 'low',
-            closeField: 'close',
-            style: {
-                dropStyle: {
-                    fill: 'rgb(237, 123, 43)',
-                    stroke: 'rgb(237, 123, 43)'
+        axes: [
+            {
+                type: 'numeric',
+                position: 'left',
+                fields: ['open', 'high', 'low', 'close'],
+                title: {
+                    text: 'Sample Values',
+                    fontSize: 15
                 },
-                raiseStyle: {
-                    fill: 'rgb(55, 153, 19)',
-                    stroke: 'rgb(55, 153, 19)'
+                grid: true,
+                minimum: 500,
+                maximum: 640
+            },
+            {
+                type: 'time',
+                position: 'bottom',
+                fields: ['time'],
+                fromDate: new Date('Dec 31 2009'),
+                toDate: new Date('Jan 8 2010'),
+                title: {
+                    text: 'Sample Values',
+                    fontSize: 15
+                },
+                style: {
+                    axisLine: false
                 }
             }
-        }
+        ],
+        series: [
+            {
+                type: 'candlestick',
+                xField: 'time',
+                openField: 'open',
+                highField: 'high',
+                lowField: 'low',
+                closeField: 'close',
+                style: {
+                    dropStyle: {
+                        fill: 'rgb(237, 123, 43)',
+                        stroke: 'rgb(237, 123, 43)'
+                    },
+                    raiseStyle: {
+                        fill: 'rgb(55, 153, 19)',
+                        stroke: 'rgb(55, 153, 19)'
+                    }
+                }
+            }/* ,
+            {
+                type: 'line',
+                //smooth:true,
+                highlight: {
+                    size: 7,
+                    radius: 7
+                },
+                style: {
+                    stroke: 'rgb(143,203,203)'
+                },
+                xField: 'time',
+                yField: 'high'//,
+                /*marker: {
+                    type: 'path',
+                    path: ['M', -2, 0, 0, 2, 2, 0, 0, -2, 'Z'],
+                    stroke: 'blue',
+                    lineWidth: 0
+                }*/
+           /* },{
+                type: 'line',
+                highlight: {
+                    size: 7,
+                    radius: 7
+                },
+                style: {
+                    stroke: 'rgb(143,203,203)'
+                },
+                xField: 'time',
+                yField: 'low',
+                marker: {
+                    type: 'path',
+                    path: ['M', -2, 0, 0, 2, 2, 0, 0, -2, 'Z'],
+                    stroke: 'blue',
+                    lineWidth: 0
+                }
+            }  */
+
+        ]
 
     }
 });

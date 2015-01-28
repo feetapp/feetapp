@@ -15,7 +15,7 @@ Ext.define('feetapp.view.main.Main', {
 
     type: 'app-main',
 
-    controller: 'main',
+    //controller: 'main',
     viewModel: {
         type: 'main'
     },
@@ -27,7 +27,7 @@ Ext.define('feetapp.view.main.Main', {
     items: [{
         type: 'panel',
         bind: {
-            title: 'Test ChartOHLC'//'{name}'
+            title: 'Тест ChartOHLC'//'{name}'
         },
         region: 'west',
         html: '<ul><li>This area is commonly used for navigation.</li></ul>',
@@ -41,7 +41,7 @@ Ext.define('feetapp.view.main.Main', {
         region: 'center',
         type: 'tabpanel',
         items: [{
-            title: 'Test ChartOHLC',
+            title: 'Тест ChartOHLC',
             items: [
                 Ext.create('Ext.Container', {
                     width: 900,

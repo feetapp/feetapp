@@ -3,13 +3,9 @@ Ext.define("feetapp.view.chart.interactions.EventCrosshair", {
     extend: 'Ext.chart.interactions.Crosshair',
     type: 'eventcrosshair',
     alias: 'interaction.eventcrosshair',
-    config: {
-        /*
-         * Overbought level. Defaults to -20
-         */
-        ted: 'defaults'
-
-    },
+    requires: [
+        'Ext.window.MessageBox'
+    ],
 
     /*
      * Creats a William %R series
@@ -31,36 +27,53 @@ Ext.define("feetapp.view.chart.interactions.EventCrosshair", {
             xy = chart.getEventXY(e),
             x = xy[0],
             y = xy[1];
-        console.log('onGestureStart ' + x + ' '+ y);
+        console.log('onGestureStart ' + x + ' ' + y);
         return me.callParent(arguments);
     },
 
     onGestureEnd: function (e) {
         var me = this,
             chart = me.getChart(),
+            surface = chart.getSurface('overlay'),
             xy = chart.getEventXY(e),
+
             x = xy[0],
             y = xy[1];
-        console.log('onGestureEnd ' + x + ' '+ y);
+        console.log('onGestureEnd ' + x + ' ' + y);
 
-        Ext.Msg.alert('Конец', x + ' '+ y);
+
+        var sprite = Ext.create('Ext.draw.sprite.Circle', {
+            type: 'circle',
+            fill: 'black',
+            surface: surface,
+            cx: x,
+            cy: y,
+            radius: 5
+        });
+
+
+        surface.add(sprite);
+        surface.renderFrame();
+
+
+        Ext.Msg.alert('Точка', x + ' ' + y);
 
         return me.callParent(arguments);
+
+
     },
 
     onGesture: function (e) {
-        var me = this,
-            chart = me.getChart(),
+
+        var me = this;
+
+        /* chart = me.getChart(),
+            surface = chart.getSurface('overlay'),
             xy = chart.getEventXY(e),
             x = xy[0],
-            y = xy[1],
-            axes = chart.getAxes(),
-            axisX = axes[0],
-            axisY = axes[1],
-            axisPositionX = axisX.getPosition(),
-            axisPositionY = axisY.getPosition();
-
-        console.log('onGesture ' + x + ' '+ y + ' ' + axisPositionX  + ' ' + axisPositionY );
+            y = xy[1]
+        console.log('onGesture ' + x + ' ' + y);
+        */
         return me.callParent(arguments);
     }
 

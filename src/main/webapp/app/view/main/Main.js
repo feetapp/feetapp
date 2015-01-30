@@ -10,12 +10,13 @@ Ext.define('feetapp.view.main.Main', {
     extend: 'Ext.container.Container',
     requires: [
         'feetapp.view.main.MainController',
-        'feetapp.view.main.MainModel'
+        'feetapp.view.main.MainModel',
+        'Ext.window.MessageBox'
     ],
 
     type: 'app-main',
 
-    //controller: 'main',
+    controller: 'main',
     viewModel: {
         type: 'main'
     },
@@ -43,6 +44,9 @@ Ext.define('feetapp.view.main.Main', {
         items: [{
             title: 'Тест ChartOHLC',
             items: [
+
+                //{html:'efef'}
+
                 Ext.create('Ext.Container', {
                     width: 900,
                     height: 400,
@@ -50,7 +54,8 @@ Ext.define('feetapp.view.main.Main', {
                     items: [
                         {  xclass: 'feetapp.view.chart.ChartOHLC'   }
                     ]
-                })]
+                })
+            ]
 
         }]
     }]

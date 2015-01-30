@@ -6,14 +6,12 @@
  * TODO - Replace this content of this view to suite the needs of your application.
  */
 Ext.define('feetapp.view.main.MainController', {
-    extend: 'Ext.app.ViewController'//,
-    //alias: 'controller.main'
+    extend: 'Ext.app.ViewController',
+    alias: 'controller.main'/*,
 
-    /*requires: [
+    requires: [
         'Ext.window.MessageBox'
     ],
-
-
 
     onClickButton: function () {
         Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);

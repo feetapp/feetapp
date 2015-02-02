@@ -61,7 +61,7 @@ Ext.define("feetapp.view.chart.interactions.EventCrosshair", {
                 me.active = 'point3'
         }
 
-        if(!me.active)return;
+        if (!me.active)return;
 
         if (me[me.active]) {
             surface.remove(me[me.active]);
@@ -81,21 +81,19 @@ Ext.define("feetapp.view.chart.interactions.EventCrosshair", {
         });
 
 
-        if (me.point1 && me.point2 && (me.active == 'point2' || me.active == 'point1')) {
-            if (me.line1)  {
+        if (me.point1 && me.point2 && (me.active == 'point2' || me.active == 'point1' || me.active == 'point3')) {
+            if (me.line1) {
                 surface.remove(me.line1);
             }
 
-            var longLine =  me.getLongLine(
+            var longLine = me.getLongLine(
                 me.point1.cx,
                 me.point1.cy,
                 me.point2.cx,
                 me.point2.cy
-
             );
 
-
-            console.log(longLine);
+            //console.log(longLine);
 
             me.line1 = Ext.create('Ext.draw.sprite.Line', {
                 type: 'line',
@@ -106,6 +104,39 @@ Ext.define("feetapp.view.chart.interactions.EventCrosshair", {
                 toY: longLine.p2.y
             });
             surface.add(me.line1);
+
+
+            if (me.point3) {
+
+
+                var paralelLine = me.getParallelLine(
+                    me.point1.cx,
+                    me.point1.cy,
+                    me.point2.cx,
+                    me.point2.cy,
+                    me.point3.cx,
+                    me.point3.cy
+                );
+
+                //console.log(paralelLine);
+
+                if (me.line2) {
+                    surface.remove(me.line2);
+                }
+
+                me.line2 = Ext.create('Ext.draw.sprite.Line', {
+                    type: 'line',
+                    surface: surface,
+                    fromX: paralelLine.p1.x,
+                    fromY: paralelLine.p1.y,
+                    toX: paralelLine.p2.x,
+                    toY: paralelLine.p2.y
+                });
+                surface.add(me.line2);
+
+
+            }
+
         }
 
         surface.add(me[me.active]);
@@ -132,22 +163,47 @@ Ext.define("feetapp.view.chart.interactions.EventCrosshair", {
 
     },
 
-    getLongLine: function(x1,y1,x2,y2){
+    getLongLine: function (x1, y1, x2, y2) {
+
+
+
 
         //
-        var a = y1-y2,
-        b = x2-x1,
-        c = x1*y2-x2*y1,
-            px1,py1,px2,py2;
+        var a = y1 - y2,
+            b = x2 - x1,
+            c = x1 * y2 - x2 * y1,
+            px1, py1, px2, py2;
 
-        px1 = 10,
-        py1 = -(c+a*px1)/b;
+        px1 = x2 > x1 ? 0 : 10000,
+            py1 = -(c + a * px1) / b;
 
-        py2 = 500;
-        px2 = -(c+b*py2)/a;
+        py2 = y2 < y1 ? 0 : 10000;
+        px2 = -(c + b * py2) / a;
 
 
-        return {p1:{x:px1,y:py1},p2:{x:px2,y:py2}}
+        // return {p1:{x:x1,y:y1},p2:{x:x2,y:y2}}
+
+
+        return {p1: {x: px1, y: py1}, p2: {x: px2, y: py2}}
+
+
+    },
+
+    getParallelLine: function (x1, y1, x2, y2, x3, y3) {
+
+        //
+        var a = y1 - y2,
+            b = x2 - x1,
+            c = x1 * y2 - x2 * y1,
+            py1py2;
+        py1 = -(c + a * x3) / b;
+        py2 = -(c + a * (x3 + 100)) / b;
+        var xr = x3 + 100;
+        var yr = py2 - (py1 - y3);
+
+        //return
+        //return {p1: {x: x3, y: y3}, p2: {x: xr, y: yr}}
+        return this.getLongLine(x3, y3, xr, yr)
 
 
     }

@@ -19,7 +19,7 @@ Ext.define("feetapp.view.chart.ChartOHLC", {
         type: 'cartesian',
         store: Ext.create('feetapp.store.finance.StoreTestOHLC', {}),
         interactions: {
-            type: 'eventcrosshair',
+            type: 'eventcrosshair'/*,
             axes: {
                 left: {
                     label: {
@@ -43,21 +43,7 @@ Ext.define("feetapp.view.chart.ChartOHLC", {
                     lineWidth: 2,
                     lineDash: [20, 2, 2, 2, 2, 2, 2, 2]
                 }
-            },
-            listeners: {
-                click: {
-                    element: 'el', //bind to the underlying el property on the panel
-                    fn: function () {
-                        console.log('click el');
-                    }
-                },
-                dblclick: {
-                    element: 'body', //bind to the underlying body property on the panel
-                    fn: function () {
-                        console.log('dblclick body');
-                    }
-                }
-            }
+            }  */
 
 
         },

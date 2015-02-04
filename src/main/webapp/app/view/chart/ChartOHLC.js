@@ -17,7 +17,7 @@ Ext.define("feetapp.view.chart.ChartOHLC", {
     ],
     config: {
         type: 'cartesian',
-        store: Ext.create('feetapp.store.finance.StoreTestOHLC', {}),
+        store: Ext.create('feetapp.store.finance.StoreUrlTestOHLC', {}),
         interactions: {
             type: 'eventcrosshair'/*,
             axes: {

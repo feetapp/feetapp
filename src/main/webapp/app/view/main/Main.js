@@ -6,6 +6,9 @@
  * TODO - Replace this content of this view to suite the needs of your application.
  */
 
+
+
+
 Ext.define('feetapp.view.main.Main', {
     extend: 'Ext.container.Container',
     requires: [

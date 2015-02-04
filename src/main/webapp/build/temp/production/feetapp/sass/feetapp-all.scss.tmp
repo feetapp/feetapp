@@ -883,6 +883,7 @@ $include-extthemeneptune-toolbar-toolbar: true;
 $include-feetapp-application: true;
 $include-feetapp-model-finance-modelohlc: false;
 $include-feetapp-store-finance-storetestohlc: false;
+$include-feetapp-store-finance-storeurltestohlc: false;
 $include-feetapp-view-chart-chartohlc: false;
 $include-feetapp-view-chart-interactions-eventcrosshair: false;
 $include-feetapp-view-main-main: true;

@@ -15,12 +15,14 @@
         <jackson.databind-version>2.2.3</jackson.databind-version>
     </properties>
     <dependencies>
+
         <!-- Jackson -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.databind-version}</version>
         </dependency>
+
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -38,13 +40,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${org.springframework-version}</version>
-        </dependency>
-
-        <!-- AspectJ -->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>${org.aspectj-version}</version>
         </dependency>
 
         <!-- Logging -->
@@ -101,19 +96,10 @@
             <artifactId>commons-io</artifactId>
             <version>2.1</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.2.2</version>
-        </dependency>
-
-
-        <!-- @Inject -->
-        <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-            <version>1</version>
         </dependency>
 
         <!-- Servlet -->
@@ -149,22 +135,6 @@
         <finalName>feetapp</finalName>
 
         <plugins>
-
-
-            <!--<plugin>-->
-                <!--<artifactId>maven-eclipse-plugin</artifactId>-->
-                <!--<version>2.9</version>-->
-                <!--<configuration>-->
-                    <!--<additionalProjectnatures>-->
-                        <!--<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>-->
-                    <!--</additionalProjectnatures>-->
-                    <!--<additionalBuildcommands>-->
-                        <!--<buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>-->
-                    <!--</additionalBuildcommands>-->
-                    <!--<downloadSources>true</downloadSources>-->
-                    <!--<downloadJavadocs>true</downloadJavadocs>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -177,14 +147,6 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
-            <!--<plugin>-->
-                <!--<groupId>org.codehaus.mojo</groupId>-->
-                <!--<artifactId>exec-maven-plugin</artifactId>-->
-                <!--<version>1.2.1</version>-->
-                <!--<configuration>-->
-                    <!--<mainClass>org.test.int1.Main</mainClass>-->
-                <!--</conffiguration>-->
-            <!--</plugin>-->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.0</version>
@@ -227,12 +189,6 @@
                     <webAppConfig>
                         <contextPath>/feetapp</contextPath>
                     </webAppConfig>
-                    <loginServices>
-                        <loginService implementation="org.eclipse.jetty.security.HashLoginService">
-                            <name>Monitoring</name>
-                            <config>${basedir}/src/test/resources/jetty-realm.properties</config>
-                        </loginService>
-                    </loginServices>
                 </configuration>
             </plugin>
         </plugins>

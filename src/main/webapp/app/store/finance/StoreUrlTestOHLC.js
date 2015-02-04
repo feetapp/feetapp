@@ -9,7 +9,7 @@ Ext.define("feetapp.store.finance.StoreUrlTestOHLC", {
         model: "feetapp.model.finance.ModelOHLC",
         proxy: {
             type:'ajax',
-            url: '/rest/ohlc'
+            url: '/feetapp/rest/ohlc'
         },
         autoLoad: true
     }

@@ -51,7 +51,7 @@ Ext.define('feetapp.view.main.Main', {
                 //{html:'efef'}
 
                 Ext.create('Ext.Container', {
-                    width: 900,
+                    width: 1200,
                     height: 400,
                     layout: 'fit',
                     items: [

@@ -58,15 +58,15 @@ Ext.define("feetapp.view.chart.ChartOHLC", {
                     fontSize: 15
                 },
                 grid: true,
-                minimum: 500,
-                maximum: 640
+                minimum: 220,
+                maximum: 240
             },
             {
                 type: 'time',
                 position: 'bottom',
                 fields: ['time'],
-                fromDate: new Date('Dec 31 2009'),
-                toDate: new Date('Jan 8 2010'),
+                fromDate: new Date(1423043820),
+                toDate: new Date(1423086780),
                 title: {
                     text: 'Sample Values',
                     fontSize: 15

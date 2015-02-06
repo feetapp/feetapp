@@ -379,9 +379,6 @@ Ext.define('Ext.chart.interactions.Crosshair', {
                         yValue = axisSegmenter.from(yValue);
                     }
                     text = axisSegmenter.renderer(yValue, axisLayoutContext);
-
-                    console.log(text);
-
                     axisLabel.setAttributes({translationY: y - py});
                     axisLabel.labelText.setAttributes({text: text});
                     labelBBox = axisLabel.labelText.getBBox();

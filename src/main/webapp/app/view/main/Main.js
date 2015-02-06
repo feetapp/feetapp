@@ -36,11 +36,8 @@ Ext.define('feetapp.view.main.Main', {
         region: 'west',
         html: '<ul><li>This area is commonly used for navigation.</li></ul>',
         width: 250,
-        split: true/*,
-         tbar: [{
-         text: 'Button',
-         handler: 'onClickButton'
-         }]*/
+        split: true,
+
     }, {
         region: 'center',
         type: 'tabpanel',
@@ -48,10 +45,16 @@ Ext.define('feetapp.view.main.Main', {
             title: 'Тест ChartOHLC',
             items: [
 
+                {tbar: [{
+    text: 'Refresh XBTUSD',
+    handler: function(){
+        Ext.getCmp('ohlc_chart').getStore().load()
+    }
+}]},
                 //{html:'efef'}
 
                 Ext.create('Ext.Container', {
-                    width: 1200,
+                    width: 950,
                     height: 400,
                     layout: 'fit',
                     items: [

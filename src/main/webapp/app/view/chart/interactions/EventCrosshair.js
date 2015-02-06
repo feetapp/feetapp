@@ -52,7 +52,7 @@ Ext.define("feetapp.view.chart.interactions.EventCrosshair", {
             x = xy[0],
             y = xy[1];
 
-        console.log('x = ' + x +' , y = ' + y );
+        //Crosole.log('x = ' + x +' , y = ' + y );
 
         if (!me.active) {
             if (!me.point1)

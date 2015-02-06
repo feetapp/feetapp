@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.feetapp.mvc.model.OhlcModel;
 import com.feetapp.util.http.HttpClient;
+import org.apache.commons.lang.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -20,15 +21,26 @@ public class OhlcController {
 
     private static final Logger LOG = LoggerFactory.getLogger(OhlcController.class);
 
+
+//    public static Date getEndOfDay(Date date) {
+//        return DateUtils.addMilliseconds(DateUtils.ceiling(date, Calendar.DATE), -1);
+//    }
+//
+//    public static Date getStartOfDay(Date date) {
+//        return DateUtils.truncate(date, Calendar.DATE);
+//    }
+
     @RequestMapping(value = "/rest/ohlc*", method = RequestMethod.GET)
     public
     @ResponseBody
     OhlcModel[] getDummyEmployee() {
 
+        //long sd = getStartOfDay(new Date()).getTime();
+        //long ed = getEndOfDay(new Date()).getTime();
 
         HttpClient httpClient = new HttpClient();
 
-        String resultData = httpClient.doStringGet("https://api.kraken.com/0/public/OHLC?pair=XBTUSD");
+        String resultData = httpClient.doStringGet("https://api.kraken.com/0/public/OHLC?pair=XBTUSD");//&interval=10080");
 
         LinkedHashMap resultMap = null;
 
@@ -48,8 +60,11 @@ public class OhlcController {
 
             ArrayList<Object> data = (ArrayList<Object>) arrayList.get(i);
 
+            long t = (Long.parseLong(data.get(0).toString()));
+
+
             OhlcModel ohlcModel = new OhlcModel();
-            ohlcModel.setTime(new Date(Long.parseLong(data.get(0).toString())));
+            ohlcModel.setTime(new Date(t));
             ohlcModel.setOpen(Float.parseFloat(data.get(1).toString()));
             ohlcModel.setHigh(Float.parseFloat(data.get(2).toString()));
             ohlcModel.setLow(Float.parseFloat(data.get(3).toString()));
